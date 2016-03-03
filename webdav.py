@@ -38,7 +38,7 @@ def get_webdav_url():
         hostname.split('.'))
     return urlparse.urlunsplit((protocol, hostname,
         urllib.quote(
-            Transaction().cursor.database_name.encode('utf-8') + '/'),
+            Transaction().database.name.encode('utf-8') + '/'),
             None, None))
 
 
@@ -434,7 +434,7 @@ class Collection(ModelSQL, ModelView):
                 else:
                     ids = [object_id]
                 res = None
-                cursor = Transaction().cursor
+                cursor = Transaction().connection.cursor()
                 table = Model.__table__()
                 for sub_ids in grouped_slice(ids):
                     red_sql = reduce_ids(table.id, sub_ids)
@@ -470,7 +470,7 @@ class Collection(ModelSQL, ModelView):
                 else:
                     ids = [object_id]
                 res = None
-                cursor = Transaction().cursor
+                cursor = Transaction().connection.cursor()
                 table = Model.__table__()
                 for sub_ids in grouped_slice(ids):
                     red_sql = reduce_ids(table.id, sub_ids)
