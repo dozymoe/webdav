@@ -21,7 +21,6 @@ from trytond.protocols.sslsocket import SSLSocket
 from trytond.protocols.common import daemon
 from trytond.security import login
 from trytond import __version__
-from trytond.tools.misc import LocalDict
 from trytond import backend
 from trytond.pool import Pool
 from trytond.transaction import Transaction
@@ -36,17 +35,11 @@ DAV_VERSION_2['version'] += ',access-control'
 logger = logging.getLogger(__name__)
 
 
-# Local int for multi-thread
-class LocalInt(local):
-
-    def __init__(self, value=0):
-        super(LocalInt, self).__init__()
-        self.value = value
-
-    def __int__(self):
-        return int(self.value)
-
-CACHE = LocalDict()
+class Local(local):
+    def __init__(self):
+        super(Local, self).__init__()
+        self.cache = {}
+LOCAL = Local()
 
 
 def setupConfig():
@@ -175,7 +168,7 @@ class TrytonDAVInterface(iface.dav_interface):
             if path[-1:] != '/':
                 path += '/'
             for child in Collection.get_childs(dburi, filter=filter,
-                    cache=CACHE):
+                    cache=LOCAL.cache):
                 res.append(urlparse.urlunparse((scheme, netloc,
                             path + child.encode('utf-8'), params, query,
                             fragment)))
@@ -226,7 +219,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.get_data(dburi, cache=CACHE)
+            res = Collection.get_data(dburi, cache=LOCAL.cache)
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
             self._log_exception(exception)
             raise
@@ -257,7 +250,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.put(dburi, data, content_type, cache=CACHE)
+            res = Collection.put(dburi, data, content_type, cache=LOCAL.cache)
             Transaction().commit()
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
             self._log_exception(exception)
@@ -280,7 +273,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.mkcol(dburi, cache=CACHE)
+            res = Collection.mkcol(dburi, cache=LOCAL.cache)
             Transaction().commit()
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
             self._log_exception(exception)
@@ -299,7 +292,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.get_resourcetype(dburi, cache=CACHE)
+            res = Collection.get_resourcetype(dburi, cache=LOCAL.cache)
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
             self._log_exception(exception)
             raise
@@ -315,7 +308,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         try:
             Collection = pool.get('webdav.collection')
-            res = Collection.get_displayname(dburi, cache=CACHE)
+            res = Collection.get_displayname(dburi, cache=LOCAL.cache)
         except KeyError:
             raise DAV_NotFound
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
@@ -333,7 +326,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.get_contentlength(dburi, cache=CACHE)
+            res = Collection.get_contentlength(dburi, cache=LOCAL.cache)
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
             self._log_exception(exception)
             raise
@@ -349,7 +342,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.get_contenttype(dburi, cache=CACHE)
+            res = Collection.get_contenttype(dburi, cache=LOCAL.cache)
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
             self._log_exception(exception)
             raise
@@ -368,7 +361,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.get_creationdate(dburi, cache=CACHE)
+            res = Collection.get_creationdate(dburi, cache=LOCAL.cache)
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
             self._log_exception(exception)
             raise
@@ -384,7 +377,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.get_lastmodified(dburi, cache=CACHE)
+            res = Collection.get_lastmodified(dburi, cache=LOCAL.cache)
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
             self._log_exception(exception)
             raise
@@ -400,7 +393,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.rmcol(dburi, cache=CACHE)
+            res = Collection.rmcol(dburi, cache=LOCAL.cache)
             Transaction().commit()
         except Exception, exception:
             self._log_exception(exception)
@@ -415,7 +408,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.rm(dburi, cache=CACHE)
+            res = Collection.rm(dburi, cache=LOCAL.cache)
             Transaction().commit()
         except Exception, exception:
             self._log_exception(exception)
@@ -430,7 +423,7 @@ class TrytonDAVInterface(iface.dav_interface):
         pool = Pool(Transaction().database.name)
         Collection = pool.get('webdav.collection')
         try:
-            res = Collection.exists(dburi, cache=CACHE)
+            res = Collection.exists(dburi, cache=LOCAL.cache)
         except (DAV_Error, DAV_NotFound, DAV_Secret, DAV_Forbidden), exception:
             self._log_exception(exception)
             raise
@@ -481,7 +474,7 @@ class TrytonDAVInterface(iface.dav_interface):
             try:
                 Collection = pool.get('webdav.collection')
                 privileges = Collection.current_user_privilege_set(dburi,
-                        cache=CACHE)
+                        cache=LOCAL.cache)
             except KeyError:
                 pass
             except Exception, exception:
@@ -519,8 +512,6 @@ class WebDAVAuthRequestHandler(WebDAVServer.DAVRequestHandler):
     def finish(self):
         WebDAVServer.DAVRequestHandler.finish(self)
 
-        global CACHE
-        CACHE = LocalDict()
         if not Transaction().connection:
             return
         dbname = Transaction().database.name
