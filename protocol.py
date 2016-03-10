@@ -21,7 +21,6 @@ from trytond.protocols.sslsocket import SSLSocket
 from trytond.protocols.common import daemon
 from trytond.security import login
 from trytond import __version__
-from trytond import backend
 from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.cache import Cache
@@ -149,15 +148,9 @@ class TrytonDAVInterface(iface.dav_interface):
         res = []
         dbname, dburi = self._get_dburi(uri)
         if not dbname:
-            database = backend.get('Database')().connect()
-            cursor = database.cursor()
-            try:
-                lists = database.list(cursor)
-            except Exception:
-                lists = []
-            finally:
-                cursor.close()
-            for dbname in lists:
+            with Transaction().start(None, 0, close=True) as transaction:
+                list_ = transaction.database.list()
+            for dbname in list_:
                 res.append(urlparse.urljoin(uri, dbname))
             return res
         pool = Pool(Transaction().database.name)
@@ -515,7 +508,7 @@ class WebDAVAuthRequestHandler(WebDAVServer.DAVRequestHandler):
         if not Transaction().connection:
             return
         dbname = Transaction().database.name
-        Transaction().stop()
+        Transaction().__exit__(None, None, None)
         if dbname:
             with Transaction().start(dbname, 0):
                 Cache.resets(dbname)
@@ -544,10 +537,8 @@ class WebDAVAuthRequestHandler(WebDAVServer.DAVRequestHandler):
     def get_userinfo(self, user, password, command=''):
         path = urlparse.urlparse(self.path).path
         dbname = urllib.unquote_plus(path.split('/', 2)[1])
-        database = backend.get('Database')().connect()
-        cursor = database.cursor()
-        databases = database.list(cursor)
-        cursor.close()
+        with Transaction().start(None, 0, close=True) as transaction:
+            databases = transaction.database.list()
         if not dbname or dbname not in databases:
             return True
         if user:
