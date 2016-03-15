@@ -7,7 +7,7 @@ import urlparse
 import time
 import urllib
 import logging
-from threading import local
+from threading import local, Thread
 import xml.dom.minidom
 import base64
 from pywebdav.lib import WebDAVServer, iface
@@ -17,13 +17,12 @@ from pywebdav.lib.constants import COLLECTION, DAV_VERSION_1, DAV_VERSION_2
 from pywebdav.lib.utils import get_urifilename, quote_uri
 from pywebdav.lib.davcmd import copyone, copytree, moveone, movetree, \
     delone, deltree
-from trytond.protocols.sslsocket import SSLSocket
-from trytond.protocols.common import daemon
 from trytond.security import login
 from trytond import __version__
 from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.cache import Cache
+from trytond.config import config
 from trytond.exceptions import UserError, UserWarning, NotLogged, \
     ConcurrencyException
 domimpl = xml.dom.minidom.getDOMImplementation()
@@ -32,6 +31,16 @@ DAV_VERSION_1['version'] += ',access-control'
 DAV_VERSION_2['version'] += ',access-control'
 
 logger = logging.getLogger(__name__)
+
+
+def SSLSocket(socket):
+    # Let the import error raise only when used
+    import ssl
+    return ssl.wrap_socket(socket,
+        server_side=True,
+        certfile=config.get('ssl', 'certificate'),
+        keyfile=config.get('ssl', 'privatekey'),
+        ssl_version=ssl.PROTOCOL_SSLv23)
 
 
 class Local(local):
@@ -81,11 +90,17 @@ class SecureThreadedHTTPServer(BaseThreadedHTTPServer):
         self.server_activate()
 
 
-class WebDAVServerThread(daemon):
+class WebDAVServerThread(Thread):
 
     def __init__(self, interface, port, secure=False):
-        daemon.__init__(self, interface, port, secure,
-                name='WebDAVServerThread')
+        Thread.__init__(self, name='WebDAVServerThread')
+        self.secure = secure
+        self.ipv6 = False
+        for family, _, _, _, _ in socket.getaddrinfo(interface or None, port,
+                socket.AF_UNSPEC, socket.SOCK_STREAM):
+            if family == socket.AF_INET6:
+                self.ipv6 = True
+            break
         if self.secure:
             handler_class = SecureWebDAVAuthRequestHandler
             server_class = SecureThreadedHTTPServer
@@ -100,6 +115,16 @@ class WebDAVServerThread(daemon):
         handler_class.IFACE_CLASS = TrytonDAVInterface(interface, port, secure)
         handler_class.IFACE_CLASS.baseurl = handler_class._config.DAV.baseurl
         self.server = server_class((interface, port), handler_class)
+
+    def stop(self):
+        self.server.shutdown()
+        self.server.socket.shutdown(socket.SHUT_RDWR)
+        self.server.server_close()
+        return
+
+    def run(self):
+        self.server.serve_forever()
+        return True
 
 
 class BaseThreadedHTTPServer6(BaseThreadedHTTPServer):
