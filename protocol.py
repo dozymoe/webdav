@@ -23,8 +23,7 @@ from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.cache import Cache
 from trytond.config import config
-from trytond.exceptions import UserError, UserWarning, NotLogged, \
-    ConcurrencyException
+from trytond.exceptions import UserError, UserWarning, ConcurrencyException
 domimpl = xml.dom.minidom.getDOMImplementation()
 
 DAV_VERSION_1['version'] += ',access-control'
@@ -147,7 +146,7 @@ class TrytonDAVInterface(iface.dav_interface):
         self.verbose = False
 
     def _log_exception(self, exception):
-        if isinstance(exception, (NotLogged, ConcurrencyException, UserError,
+        if isinstance(exception, (ConcurrencyException, UserError,
                     UserWarning, DAV_Error, DAV_NotFound, DAV_Secret,
                     DAV_Forbidden)):
             logger.debug('Exception %s', exception, exc_info=True)
