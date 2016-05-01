@@ -2,158 +2,153 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-#, fuzzy
 msgctxt "error:ir.attachment:"
 msgid ""
 "You can not create an attachment named \"%(attachment)s\" in collection "
 "\"%(collection)s\" because there is already a collection with that name."
-msgstr ""
-"Вы не можете создать коллекцию \"%(parent)s\" в коллекции \"%(child)s\" так "
-"как существует файл с таким именем."
+msgstr "重名！不能在专辑\"%(collection)s\"里创建 \"%(attachment)s\"."
 
 msgctxt "error:webdav.collection:"
 msgid "The collection name must be unique inside a collection!"
-msgstr "Имя каталога должно быть уникальным внутри каталога!"
+msgstr "专辑名必须唯一 !"
 
 msgctxt "error:webdav.collection:"
 msgid ""
 "You can not create a collection named \"%(parent)s\" in collection "
 "\"%(child)s\" because there is already a file with that name."
-msgstr ""
-"Вы не можете создать коллекцию \"%(parent)s\" в коллекции \"%(child)s\" так "
-"как существует файл с таким именем."
+msgstr "存在同名文档，无法创建在 \"%(child)s\"创建专辑 \"%(parent)s\"."
 
 msgctxt "field:ir.attachment,path:"
 msgid "Path"
-msgstr "Путь"
+msgstr "路径"
 
 msgctxt "field:ir.attachment,shares:"
 msgid "Shares"
-msgstr "Общие папки"
+msgstr "共享文档"
 
 msgctxt "field:ir.attachment,url:"
 msgid "URL"
-msgstr "Ссылка"
+msgstr "URL"
 
 msgctxt "field:webdav.collection,childs:"
 msgid "Children"
-msgstr "Подчиненый"
+msgstr "子项"
 
 msgctxt "field:webdav.collection,complete_name:"
 msgid "Complete Name"
-msgstr "Полное название"
+msgstr "全名"
 
 msgctxt "field:webdav.collection,create_date:"
 msgid "Create Date"
-msgstr "Дата создания"
+msgstr "创建日期"
 
 msgctxt "field:webdav.collection,create_uid:"
 msgid "Create User"
-msgstr "Создано пользователем"
+msgstr "创建者"
 
 msgctxt "field:webdav.collection,domain:"
 msgid "Domain"
-msgstr "Область"
+msgstr "域配置"
 
 msgctxt "field:webdav.collection,id:"
 msgid "ID"
-msgstr "ID"
+msgstr "标识"
 
 msgctxt "field:webdav.collection,model:"
 msgid "Model"
-msgstr "Модель"
+msgstr "模型"
 
 msgctxt "field:webdav.collection,name:"
 msgid "Name"
-msgstr "Наименование"
+msgstr "名称"
 
 msgctxt "field:webdav.collection,parent:"
 msgid "Parent"
-msgstr "Предок"
+msgstr "上级"
 
 msgctxt "field:webdav.collection,rec_name:"
 msgid "Name"
-msgstr "Наименование"
+msgstr "名称"
 
 msgctxt "field:webdav.collection,write_date:"
 msgid "Write Date"
-msgstr "Дата изменения"
+msgstr "写入日期"
 
 msgctxt "field:webdav.collection,write_uid:"
 msgid "Write User"
-msgstr "Изменено пользователем"
+msgstr "写入帐号"
 
 msgctxt "field:webdav.share,create_date:"
 msgid "Create Date"
-msgstr "Дата создания"
+msgstr "创建日期"
 
 msgctxt "field:webdav.share,create_uid:"
 msgid "Create User"
-msgstr "Создано пользователем"
+msgstr "创建者"
 
 msgctxt "field:webdav.share,expiration_date:"
 msgid "Expiration Date"
-msgstr "Дата окончания"
+msgstr "失效日期"
 
 msgctxt "field:webdav.share,id:"
 msgid "ID"
-msgstr "ID"
+msgstr "标识"
 
 msgctxt "field:webdav.share,key:"
 msgid "Key"
-msgstr "Ключ"
+msgstr "密匙"
 
 msgctxt "field:webdav.share,note:"
 msgid "Note"
-msgstr "Комментарий"
+msgstr "注释"
 
 msgctxt "field:webdav.share,path:"
 msgid "Path"
-msgstr "Путь"
+msgstr "路径"
 
 msgctxt "field:webdav.share,rec_name:"
 msgid "Name"
-msgstr "Наименование"
+msgstr "名称"
 
 msgctxt "field:webdav.share,url:"
 msgid "URL"
-msgstr "Ссылка"
+msgstr "URL"
 
 msgctxt "field:webdav.share,user:"
 msgid "User"
-msgstr "Пользователь"
+msgstr "用户"
 
 msgctxt "field:webdav.share,write_date:"
 msgid "Write Date"
-msgstr "Дата изменения"
+msgstr "写入日期"
 
 msgctxt "field:webdav.share,write_uid:"
 msgid "Write User"
-msgstr "Изменено пользователем"
+msgstr "写入帐号"
 
 msgctxt "model:ir.action,name:act_collection_list"
 msgid "Collections"
-msgstr "Коллекции"
+msgstr "专辑"
 
 msgctxt "model:ir.action,name:act_collection_tree"
 msgid "Collections"
-msgstr "Коллекции"
+msgstr "专辑"
 
 msgctxt "model:ir.action,name:act_share_list"
 msgid "Shares"
-msgstr "Общие папки"
+msgstr "共享文档"
 
 msgctxt "model:ir.ui.menu,name:menu_collection_list"
 msgid "Collections"
-msgstr "Коллекции"
+msgstr "专辑"
 
 msgctxt "model:ir.ui.menu,name:menu_collection_tree"
 msgid "Collections"
-msgstr "Коллекции в виде дерева"
+msgstr "专辑"
 
 msgctxt "model:ir.ui.menu,name:menu_share_list"
 msgid "Shares"
-msgstr "Общие папки"
+msgstr "共享文档"
 
 msgctxt "model:ir.ui.menu,name:menu_webdav"
 msgid "WebDAV"
@@ -161,11 +156,11 @@ msgstr "WebDAV"
 
 msgctxt "model:webdav.collection,name:"
 msgid "Collection"
-msgstr "Каталог"
+msgstr "专辑"
 
 msgctxt "model:webdav.share,name:"
 msgid "Share"
-msgstr "Общая папка"
+msgstr "分享"
 
 msgctxt "view:ir.attachment:"
 msgid "WebDAV"
@@ -173,16 +168,16 @@ msgstr "WebDAV"
 
 msgctxt "view:webdav.collection:"
 msgid "Collection"
-msgstr "Каталог"
+msgstr "专辑"
 
 msgctxt "view:webdav.collection:"
 msgid "Collections"
-msgstr "Коллекции"
+msgstr "专辑"
 
 msgctxt "view:webdav.share:"
 msgid "Share"
-msgstr "Общая папка"
+msgstr "分享"
 
 msgctxt "view:webdav.share:"
 msgid "Shares"
-msgstr "Общие папки"
+msgstr "共享文档"

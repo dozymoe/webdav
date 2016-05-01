@@ -166,22 +166,27 @@ msgctxt "model:webdav.share,name:"
 msgid "Share"
 msgstr "Directorio compartido"
 
+#, fuzzy
 msgctxt "view:ir.attachment:"
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
+#, fuzzy
 msgctxt "view:webdav.collection:"
 msgid "Collection"
-msgstr ""
+msgstr "Directorio"
 
+#, fuzzy
 msgctxt "view:webdav.collection:"
 msgid "Collections"
-msgstr ""
+msgstr "Directorios"
 
+#, fuzzy
 msgctxt "view:webdav.share:"
 msgid "Share"
-msgstr ""
+msgstr "Directorio compartido"
 
+#, fuzzy
 msgctxt "view:webdav.share:"
 msgid "Shares"
-msgstr ""
+msgstr "Directorios compartidos"

@@ -168,20 +168,20 @@ msgstr "Compartilhado"
 
 msgctxt "view:ir.attachment:"
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
 msgctxt "view:webdav.collection:"
 msgid "Collection"
-msgstr ""
+msgstr "Coleção"
 
 msgctxt "view:webdav.collection:"
 msgid "Collections"
-msgstr ""
+msgstr "Coleções"
 
 msgctxt "view:webdav.share:"
 msgid "Share"
-msgstr ""
+msgstr "Compartilhado"
 
 msgctxt "view:webdav.share:"
 msgid "Shares"
-msgstr ""
+msgstr "Compartilhamentos"
