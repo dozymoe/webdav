@@ -566,7 +566,8 @@ class WebDAVAuthRequestHandler(WebDAVServer.DAVRequestHandler):
         if not dbname or dbname not in databases:
             return True
         if user:
-            user = int(login(dbname, user, password, cache=False))
+            parameters = {'password': password}
+            user = int(login(dbname, user, parameters, cache=False))
             if not user:
                 return None
         else:
