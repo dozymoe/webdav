@@ -69,6 +69,12 @@ class TrytonWebdavServer(object):
 
         self.start_servers()
 
+        while True:
+            if self.options.dev:
+                time.sleep(1)
+            else:
+                time.sleep(60)
+
     def start_servers(self):
         ssl = config.get('ssl', 'privatekey')
 
