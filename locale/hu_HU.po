@@ -18,113 +18,138 @@ msgid ""
 "\"%(child)s\" because there is already a file with that name."
 msgstr ""
 
+#, fuzzy
 msgctxt "field:ir.attachment,path:"
 msgid "Path"
-msgstr ""
+msgstr "Útvonal"
 
 msgctxt "field:ir.attachment,shares:"
 msgid "Shares"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:ir.attachment,url:"
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
+#, fuzzy
 msgctxt "field:webdav.collection,childs:"
 msgid "Children"
-msgstr ""
+msgstr "Gyermek (csomag)"
 
+#, fuzzy
 msgctxt "field:webdav.collection,complete_name:"
 msgid "Complete Name"
-msgstr ""
+msgstr "Teljes név"
 
+#, fuzzy
 msgctxt "field:webdav.collection,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:webdav.collection,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
+#, fuzzy
 msgctxt "field:webdav.collection,domain:"
 msgid "Domain"
-msgstr ""
+msgstr "Értéktartomány"
 
+#, fuzzy
 msgctxt "field:webdav.collection,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+#, fuzzy
 msgctxt "field:webdav.collection,model:"
 msgid "Model"
-msgstr ""
+msgstr "Minta"
 
+#, fuzzy
 msgctxt "field:webdav.collection,name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
+#, fuzzy
 msgctxt "field:webdav.collection,parent:"
 msgid "Parent"
-msgstr ""
+msgstr "Szülő (csomag)"
 
+#, fuzzy
 msgctxt "field:webdav.collection,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
+#, fuzzy
 msgctxt "field:webdav.collection,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:webdav.collection,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
+#, fuzzy
 msgctxt "field:webdav.share,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:webdav.share,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
+#, fuzzy
 msgctxt "field:webdav.share,expiration_date:"
 msgid "Expiration Date"
-msgstr ""
+msgstr "Lejárati dátuma"
 
+#, fuzzy
 msgctxt "field:webdav.share,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+#, fuzzy
 msgctxt "field:webdav.share,key:"
 msgid "Key"
-msgstr ""
+msgstr "Kulcs"
 
 msgctxt "field:webdav.share,note:"
 msgid "Note"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:webdav.share,path:"
 msgid "Path"
-msgstr ""
+msgstr "Útvonal"
 
+#, fuzzy
 msgctxt "field:webdav.share,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
+#, fuzzy
 msgctxt "field:webdav.share,url:"
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
+#, fuzzy
 msgctxt "field:webdav.share,user:"
 msgid "User"
-msgstr ""
+msgstr "Felhasználó"
 
+#, fuzzy
 msgctxt "field:webdav.share,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:webdav.share,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
 msgctxt "model:ir.action,name:act_collection_list"
 msgid "Collections"

@@ -58,17 +58,19 @@ msgctxt "field:webdav.collection,model:"
 msgid "Model"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:webdav.collection,name:"
 msgid "Name"
-msgstr ""
+msgstr "Namu"
 
 msgctxt "field:webdav.collection,parent:"
 msgid "Parent"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:webdav.collection,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Namu"
 
 msgctxt "field:webdav.collection,write_date:"
 msgid "Write Date"
@@ -106,9 +108,10 @@ msgctxt "field:webdav.share,path:"
 msgid "Path"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:webdav.share,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Namu"
 
 msgctxt "field:webdav.share,url:"
 msgid "URL"

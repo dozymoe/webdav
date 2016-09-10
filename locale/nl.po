@@ -10,7 +10,7 @@ msgstr ""
 
 msgctxt "error:webdav.collection:"
 msgid "The collection name must be unique inside a collection!"
-msgstr ""
+msgstr "De naam van de verzameling moet uniek zijn binnen de verzameling!"
 
 msgctxt "error:webdav.collection:"
 msgid ""
@@ -18,133 +18,153 @@ msgid ""
 "\"%(child)s\" because there is already a file with that name."
 msgstr ""
 
+#, fuzzy
 msgctxt "field:ir.attachment,path:"
 msgid "Path"
-msgstr ""
+msgstr "Pad"
 
 msgctxt "field:ir.attachment,shares:"
 msgid "Shares"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:ir.attachment,url:"
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgctxt "field:webdav.collection,childs:"
 msgid "Children"
-msgstr ""
+msgstr "Onderliggende niveaus"
 
+#, fuzzy
 msgctxt "field:webdav.collection,complete_name:"
 msgid "Complete Name"
-msgstr ""
+msgstr "Volledige naam"
 
+#, fuzzy
 msgctxt "field:webdav.collection,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Datum"
 
+#, fuzzy
 msgctxt "field:webdav.collection,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Gebruiker"
 
 msgctxt "field:webdav.collection,domain:"
 msgid "Domain"
-msgstr ""
+msgstr "Domein"
 
+#, fuzzy
 msgctxt "field:webdav.collection,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:webdav.collection,model:"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "field:webdav.collection,name:"
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgctxt "field:webdav.collection,parent:"
 msgid "Parent"
-msgstr ""
+msgstr "Bovenliggend niveau"
 
 msgctxt "field:webdav.collection,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
+#, fuzzy
 msgctxt "field:webdav.collection,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Schrijfdatum"
 
+#, fuzzy
 msgctxt "field:webdav.collection,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Gebruiker"
 
+#, fuzzy
 msgctxt "field:webdav.share,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Datum"
 
+#, fuzzy
 msgctxt "field:webdav.share,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Gebruiker"
 
 msgctxt "field:webdav.share,expiration_date:"
 msgid "Expiration Date"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:webdav.share,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:webdav.share,key:"
 msgid "Key"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:webdav.share,note:"
 msgid "Note"
-msgstr ""
+msgstr "Aantekening"
 
+#, fuzzy
 msgctxt "field:webdav.share,path:"
 msgid "Path"
-msgstr ""
+msgstr "Pad"
 
+#, fuzzy
 msgctxt "field:webdav.share,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Naam bijlage"
 
+#, fuzzy
 msgctxt "field:webdav.share,url:"
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
+#, fuzzy
 msgctxt "field:webdav.share,user:"
 msgid "User"
-msgstr ""
+msgstr "Gebruiker"
 
+#, fuzzy
 msgctxt "field:webdav.share,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Schrijfdatum"
 
+#, fuzzy
 msgctxt "field:webdav.share,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Gebruiker"
 
+#, fuzzy
 msgctxt "model:ir.action,name:act_collection_list"
 msgid "Collections"
-msgstr ""
+msgstr "Verzamelingen"
 
 msgctxt "model:ir.action,name:act_collection_tree"
 msgid "Collections"
-msgstr ""
+msgstr "Verzamelingen"
 
 msgctxt "model:ir.action,name:act_share_list"
 msgid "Shares"
 msgstr ""
 
+#, fuzzy
 msgctxt "model:ir.ui.menu,name:menu_collection_list"
 msgid "Collections"
-msgstr ""
+msgstr "Verzamelingen"
 
 msgctxt "model:ir.ui.menu,name:menu_collection_tree"
 msgid "Collections"
-msgstr ""
+msgstr "Verzamelingen"
 
 msgctxt "model:ir.ui.menu,name:menu_share_list"
 msgid "Shares"
@@ -152,27 +172,28 @@ msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_webdav"
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
 msgctxt "model:webdav.collection,name:"
 msgid "Collection"
-msgstr ""
+msgstr "Verzameling"
 
 msgctxt "model:webdav.share,name:"
 msgid "Share"
 msgstr ""
 
+#, fuzzy
 msgctxt "view:ir.attachment:"
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
 msgctxt "view:webdav.collection:"
 msgid "Collection"
-msgstr ""
+msgstr "Verzameling"
 
 msgctxt "view:webdav.collection:"
 msgid "Collections"
-msgstr ""
+msgstr "Verzamelingen"
 
 msgctxt "view:webdav.share:"
 msgid "Share"
