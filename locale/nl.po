@@ -194,11 +194,3 @@ msgstr "Verzameling"
 msgctxt "view:webdav.collection:"
 msgid "Collections"
 msgstr "Verzamelingen"
-
-msgctxt "view:webdav.share:"
-msgid "Share"
-msgstr ""
-
-msgctxt "view:webdav.share:"
-msgid "Shares"
-msgstr ""

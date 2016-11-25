@@ -184,19 +184,3 @@ msgstr ""
 msgctxt "view:ir.attachment:"
 msgid "WebDAV"
 msgstr ""
-
-msgctxt "view:webdav.collection:"
-msgid "Collection"
-msgstr ""
-
-msgctxt "view:webdav.collection:"
-msgid "Collections"
-msgstr ""
-
-msgctxt "view:webdav.share:"
-msgid "Share"
-msgstr ""
-
-msgctxt "view:webdav.share:"
-msgid "Shares"
-msgstr ""
