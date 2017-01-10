@@ -567,9 +567,10 @@ class WebDAVAuthRequestHandler(WebDAVServer.DAVRequestHandler):
             return True
         if user:
             parameters = {'password': password}
-            user = int(login(dbname, user, parameters, cache=False))
+            user = login(dbname, user, parameters, cache=False)
             if not user:
                 return None
+            user = int(user)
         else:
             url = urlparse.urlparse(self.path)
             query = urlparse.parse_qs(url.query)
